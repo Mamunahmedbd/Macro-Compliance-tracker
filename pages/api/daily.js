@@ -6,14 +6,8 @@ const handler = nextConnect();
 
 handler.use(middleware);
 
-// handler.get(async (req, res) => {
-//   let doc = await req.db.collection("daily").findOne();
-//   res.json(doc);
-// });
-
 handler.get(async (req, res) => {
   const { date } = req.query;
-  console.log(date);
 
   const dataModel = {
     _id: new ObjectID(),
@@ -28,7 +22,6 @@ handler.get(async (req, res) => {
 
   if (date) {
     doc = await req.db.collection("daily").findOne({ date: new Date(date) });
-    console.log(doc);
   } else {
     doc = await req.db.collection("daily").findOne();
   }

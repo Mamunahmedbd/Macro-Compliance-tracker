@@ -38,7 +38,7 @@ const Home = ({ data: myData }) => {
   const updateMacros = async () => {
     const res = await fetch("http://localhost:3000/api/daily", {
       method: "POST",
-      body: JSON.parse(JSON.stringify(results)),
+      body: JSON.stringify(results),
     });
   };
 
@@ -96,7 +96,7 @@ const Home = ({ data: myData }) => {
   );
 };
 
-export async function getStaticProps(context) {
+export async function getStaticProps({ context }) {
   const res = await fetch("http://localhost:3000/api/daily");
   const json = await res.json();
   return {
