@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 const Result = ({ results }) => {
   let [bg, setBg] = useState("");
 
-  useEffect(() => {
-    setBackground();
-  });
+  // useEffect(() => {
+  //   setBackground();
+  // });
 
   const setBackground = () => {
     let min = results.target - results.variant;
